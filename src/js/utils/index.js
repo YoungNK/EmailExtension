@@ -1,17 +1,8 @@
 import moment from 'moment';
 
 
-export const timeFormate = function (s, formart = 'mm:ss') {
-    if (typeof s === 'string') {
-        s = parseInt(s, 10)
-    }
-    var hour = Math.floor(s / 3600);
-    var min = Math.floor(s / 60) % 60;
-    var sec = Math.round(s) % 60;
-    if (hour > 0 && formart === 'mm:ss') {
-        formart = 'HH:mm:ss'
-    }
-    return moment({hours: hour, minutes: min, seconds: sec}).format(formart)
+export const timeFormate = function (s, formart) {
+    return moment(s).format(formart)
 }
 
 export const isPhone = (s) => {
