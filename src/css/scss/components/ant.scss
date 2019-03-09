@@ -1,0 +1,8 @@
+//修改Tabs的样式
+.am-tabs-default-bar-content {
+  font-size: 0.8rem;
+}
+
+.am-tabs-default-bar-tab-active {
+  @include cm_fontMedium;
+}

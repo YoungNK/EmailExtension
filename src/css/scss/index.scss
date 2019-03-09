@@ -1,0 +1,47 @@
+.divcss5 {
+  width: 1000px;
+  padding: 25px;
+  font-size: 12pt;
+  table {
+    background: #ccc;
+    color: #333;
+    border-collapse: separate;
+    .bg-y {
+      background: #ffff99;
+    }
+    th {
+      background: #ffff99;
+      text-align: center;
+    }
+    td {
+      background: #fff;
+    }
+    .title {
+      font-size: 18pt;
+      padding-top: 10px;
+    }
+    .sub-title {
+      font-size: 16pt;
+      padding-bottom: 10px;
+    }
+    .info {
+      padding: 10px 0;
+    }
+    .info span {
+      font-size: 12pt;
+      padding: 0 20px;
+    }
+    .name {
+      width: 20%;
+      text-align: center;
+      font-weight: bold;
+    }
+    .content {
+      width: 40%;
+      padding-left: 20px;
+    }
+    .blue {
+      color: rgb(31, 73, 125);
+    }
+  }
+}
