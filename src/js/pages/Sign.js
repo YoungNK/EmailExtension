@@ -6,22 +6,21 @@ export default class Sign extends React.Component {
     super(props);
   }
   render() {
-    let { email, name, Ename = "", phone } = this.props;
+    let { email, name, Ename = "", phone, departmentFull = "" } = this.props;
     return (
       <div className="sign">
         <p>
           {name} {Ename}
         </p>
-        <p>企业服务群组-研发中心-传媒研发部-营销产品研发组</p>
+        <p>{departmentFull}</p>
         <img src={logo} className="logo" />
         <p>手机号：+(86) {phone}</p>
         <p>邮编：100101</p>
         <a href={`mailto:${name}<${email}>`}>E-mail：{email}</a>
         <p>地址: 北京市亦庄经济开发区经海五路58号院 数字工场10号楼</p>
         <p>
-          Address: Building 10, Digital Factory, No.58 Jinghai 5th
-          Road, Beijing Economic-Technological Development Area, Beijing, P.R
-          China
+          Address: Building 10, Digital Factory, No.58 Jinghai 5th Road, Beijing
+          Economic-Technological Development Area, Beijing, P.R China
         </p>
         <div className="divider">
           --------------------------------------------------------------------------------------------------------------------

@@ -2,6 +2,7 @@ import * as React from "react";
 import { timeFormate, loadFromStorage, storeData } from "../utils";
 import Sign from "./Sign";
 import { Input } from "antd";
+const { TextArea } = Input;
 
 export default class HomePage extends React.Component {
   constructor(props) {
@@ -11,7 +12,6 @@ export default class HomePage extends React.Component {
     let local = loadFromStorage();
     this.state = {
       ...local,
-      department: "传媒研发部",
       isSameYear,
       monYear: time.monStr[0],
       monMonth: time.monStr[1],
@@ -90,6 +90,17 @@ export default class HomePage extends React.Component {
     });
   };
 
+  departmentChange = val => {
+    this.dealData({
+      department: val.target.value
+    });
+  };
+  departmentFullChange = val => {
+    this.dealData({
+      departmentFull: val.target.value
+    });
+  };
+
   numberChange = val => {
     this.dealData({
       phone: val.target.value
@@ -115,7 +126,8 @@ export default class HomePage extends React.Component {
       friMonth,
       friDay,
       email,
-      phone
+      phone,
+      departmentFull
     } = this.state;
     this.getSubject();
     return (
@@ -145,6 +157,19 @@ export default class HomePage extends React.Component {
             value={leader}
             onChange={this.leaderNameChange}
           />
+
+          <Input
+            addonBefore="部门"
+            value={department}
+            onChange={this.departmentChange}
+          />
+          <TextArea
+            placeholder="请输入签名部分完整部门名称"
+            autosize
+            value={departmentFull}
+            onChange={this.departmentFullChange}
+          />
+          <div>如：企业服务群组-研发中心-传媒研发部-营销产品研发组</div>
           <a href={this.getHref()} onClick={this.send} className="send">
             发送邮件
           </a>
@@ -220,7 +245,12 @@ export default class HomePage extends React.Component {
               </tbody>
             </table>
           </div>
-          <Sign name={name} email={email} phone={phone} />
+          <Sign
+            name={name}
+            email={email}
+            phone={phone}
+            departmentFull={departmentFull}
+          />
         </div>
       </div>
     );
