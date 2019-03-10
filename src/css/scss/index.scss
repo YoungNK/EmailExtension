@@ -45,3 +45,35 @@
     }
   }
 }
+
+.sign {
+  font-size: 10pt;
+  font-family: 微软雅黑, sans-serif, serif, EmojiFont;
+  color: rgb(89, 89, 89);
+  padding-left: 25px;
+  a,
+  p {
+    line-height: 150%;
+  }
+  .logo {
+    width: 214px;
+    height: 50px;
+    margin: 10px 0;
+  }
+  .tip {
+    width: 950px;
+    font-style: italic;
+    font-size: 10pt;
+    font-family: 微软雅黑, sans-serif, serif, EmojiFont;
+    color: rgb(89, 89, 89);
+    margin: 25px 0;
+  }
+  .divider {
+    margin: 20px 0;
+    color: #aaa;
+  }
+}
+.left{
+  width: 300px;
+  padding: 25px;
+}

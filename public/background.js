@@ -58,7 +58,7 @@ chrome.browserAction.onClicked.addListener(function(tab) {
   // and https so for all other pages, we don't ask for the title.
   chrome.tabs.create(
     {
-      index: 0,
+      index: chrome.tabs.length,
       url: "chrome-extension://" + chrome.runtime.id + "/index.html"
     },
     () => {}
