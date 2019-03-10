@@ -1,17 +1,17 @@
 import * as React from "react";
-import { timeFormate } from "../utils";
+import { timeFormate, loadFromStorage, storeData } from "../utils";
 import Sign from "./Sign";
+import { Input } from "antd";
 
 export default class HomePage extends React.Component {
   constructor(props) {
     super(props);
     let time = this.getMondayAndFriday();
     let isSameYear = time.monStr[0] === time.friStr[0];
+    let local = loadFromStorage();
     this.state = {
-      name: "邵朝阳",
-      leader: "张鑫",
+      ...local,
       department: "传媒研发部",
-      email: "shaozhaoyang@jd.com",
       isSameYear,
       monYear: time.monStr[0],
       monMonth: time.monStr[1],
@@ -73,6 +73,35 @@ export default class HomePage extends React.Component {
     document.execCommand("Copy", "false", null);
   };
 
+  dealData = data => {
+    storeData(data);
+    this.setState(data);
+  };
+
+  nameChange = val => {
+    this.dealData({
+      name: val.target.value
+    });
+  };
+
+  leaderNameChange = val => {
+    this.dealData({
+      leader: val.target.value
+    });
+  };
+
+  numberChange = val => {
+    this.dealData({
+      phone: val.target.value
+    });
+  };
+
+  emailChange = val => {
+    this.dealData({
+      email: val.target.value
+    });
+  };
+
   render() {
     let {
       name,
@@ -85,12 +114,37 @@ export default class HomePage extends React.Component {
       friYear,
       friMonth,
       friDay,
-      email
+      email,
+      phone
     } = this.state;
     this.getSubject();
     return (
       <div className="d-flex">
         <div className="left">
+          <Input
+            addonBefore="姓名"
+            placeholder="请输入姓名"
+            value={name}
+            onChange={this.nameChange}
+          />
+          <Input
+            addonBefore="电话"
+            placeholder="请输入电话号码"
+            value={phone}
+            onChange={this.numberChange}
+          />
+          <Input
+            addonBefore="邮箱"
+            placeholder="请输入电子邮箱"
+            value={email}
+            onChange={this.emailChange}
+          />
+          <Input
+            addonBefore="领导"
+            placeholder="请输入领导姓名"
+            value={leader}
+            onChange={this.leaderNameChange}
+          />
           <a href={this.getHref()} onClick={this.send} className="send">
             发送邮件
           </a>
@@ -166,7 +220,7 @@ export default class HomePage extends React.Component {
               </tbody>
             </table>
           </div>
-          <Sign name={name} email={email} />
+          <Sign name={name} email={email} phone={phone} />
         </div>
       </div>
     );
