@@ -2,6 +2,7 @@ import * as React from "react";
 import { timeFormate, loadFromStorage, storeData } from "../utils";
 import Sign from "./Sign";
 import { Input } from "antd";
+import Item from "./Item";
 const { TextArea } = Input;
 
 export default class HomePage extends React.Component {
@@ -10,6 +11,9 @@ export default class HomePage extends React.Component {
     let time = this.getMondayAndFriday();
     let isSameYear = time.monStr[0] === time.friStr[0];
     let local = loadFromStorage();
+    if (!local.programs || local.programs.length < 1) {
+      local.programs = [{}];
+    }
     this.state = {
       ...local,
       isSameYear,
@@ -112,6 +116,19 @@ export default class HomePage extends React.Component {
       email: val.target.value
     });
   };
+  addProgram = () => {
+    this.state.programs.push({});
+    this.dealData({ programs: this.state.programs });
+  };
+
+  dataChange = (index, data) => {
+    if (data.delete && this.state.programs.length > index) {
+      this.state.programs.splice(index, 1);
+    } else {
+      this.state.programs[index] = data;
+    }
+    this.dealData({ programs: this.state.programs });
+  };
 
   render() {
     let {
@@ -127,7 +144,8 @@ export default class HomePage extends React.Component {
       friDay,
       email,
       phone,
-      departmentFull
+      departmentFull,
+      programs = []
     } = this.state;
     this.getSubject();
     return (
@@ -170,6 +188,11 @@ export default class HomePage extends React.Component {
             onChange={this.departmentFullChange}
           />
           <div>如：企业服务群组-研发中心-传媒研发部-营销产品研发组</div>
+
+          {programs.map((value, index) => (
+            <Item index={index} data={value} dataChange={this.dataChange} />
+          ))}
+          <a onClick={this.addProgram}>添加一个项目</a>
           <a href={this.getHref()} onClick={this.send} className="send">
             发送邮件
           </a>
@@ -206,17 +229,33 @@ export default class HomePage extends React.Component {
                   <td className="content bg-y info bd">本周结果</td>
                   <td className="content bg-y info bd">下周计划</td>
                 </tr>
-                <tr>
-                  <td className="name info blue">工作项目</td>
-                  <td className="content info">
-                    <p>本周结果</p>
-                    <p>本周结果</p>
-                    <p>本周结果</p>
-                    <p>本周结果</p>
-                    <p>本周结果</p>
-                  </td>
-                  <td className="content info">下周计划</td>
-                </tr>
+                {programs.map(value => {
+                  return (
+                    <tr>
+                      <td className="name info blue">{value.title}</td>
+                      <td className="content info">
+                        {value.res &&
+                          value.res.split("\n").map(value => {
+                            let classNameStr =
+                              value.indexOf(" ") === 0
+                                ? "item-desc"
+                                : "item-title";
+                            return <div className={classNameStr}>{value}</div>;
+                          })}
+                      </td>
+                      <td className="content info">
+                        {value.plan &&
+                          value.plan.split("\n").map(value => {
+                            let classNameStr =
+                              value.indexOf(" ") === 0
+                                ? "item-desc"
+                                : "item-title";
+                            return <div className={classNameStr}>{value}</div>;
+                          })}
+                      </td>
+                    </tr>
+                  );
+                })}
                 <tr>
                   <td
                     colSpan="3"

@@ -6,6 +6,22 @@
     background: #ccc;
     color: #333;
     border-collapse: separate;
+    .item-title{
+      font-size: 10.5pt;
+      font-family: 微软雅黑, sans-serif, serif, EmojiFont;
+      padding: 7px 15px 5px 0;
+      color: rgb(31, 73, 125);
+      font-weight: bolder;
+      text-align: justify
+    }
+    .item-desc{
+      font-size: 10pt;
+      padding: 3px 15px 3px 20px;
+      font-family: 微软雅黑, sans-serif, serif, EmojiFont;
+      color: #555555;
+      font-weight: bolder;
+      text-align: justify
+    }
     .bg-y {
       background: #ffff99;
     }
@@ -77,4 +93,7 @@
 .left{
   width: 300px;
   padding: 25px;
+  .item-box{
+    padding: 10px 0;
+  }
 }
