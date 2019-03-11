@@ -17,9 +17,8 @@ export const storeData = param => {
   var dataNow;
   try {
     dataNow = JSON.parse(window.localStorage.getItem(DataKeyName));
-  } catch (ex) {
-    dataNow = {};
-  }
+  } catch (ex) {}
+  dataNow = dataNow ? dataNow : {};
   dataNow = { ...dataNow, ...param };
   window.localStorage.setItem(DataKeyName, JSON.stringify(dataNow));
 };
@@ -28,8 +27,7 @@ export const loadFromStorage = () => {
   var dataNow;
   try {
     dataNow = JSON.parse(window.localStorage.getItem(DataKeyName));
-  } catch (ex) {
-    dataNow = {};
-  }
+  } catch (ex) {}
+  dataNow = dataNow ? dataNow : {};
   return dataNow;
 };

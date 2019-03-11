@@ -4,6 +4,7 @@ import Sign from "./Sign";
 import { Input } from "antd";
 import Item from "./Item";
 const { TextArea } = Input;
+const placeholder = "每行一个条目 行首无空格展示为一级行 加空格为次级行";
 
 export default class HomePage extends React.Component {
   constructor(props) {
@@ -56,7 +57,7 @@ export default class HomePage extends React.Component {
   };
 
   getHref = () => {
-    return `mailto:aa<sample@163.com>?subject=${this.getSubject()}&cc=sample@hotmail.com&body=<html></html>`;
+    return `mailto:aa<sample@163.com>?subject=${this.getSubject()}&cc=张庆锋 <zhangqingfeng11@jd.com>, Rowen SUN孙歌 <sunge@jd.com>, 李雪 <lixue3@jd.com>, 石强 <shiqiang@jd.com>, 吴燕峰 <wuyanfeng@jd.com>, 张敏 <zhangmin5@jd.com>, 赵钦 <zhaoqin5@jd.com>, 陈东伟 <chendongwei1@jd.com>, 张维维 <zhangweiwei6@jd.com>, 叶纪峰 <yejifeng@jd.com>, 刘鹏 <liupeng30@jd.com>, 刘须华 <liuxuhua@jd.com>, 祝鹤源 <zhuheyuan@jd.com>, 陈丽萍 <chenliping5@jd.com>, 赵庆礼 <zhaoqingli@jd.com>, 邵朝阳 <shaozhaoyang@jd.com>, 常志峰 <changzhifeng@jd.com>, 王月阳 <wangyueyang@jd.com>`;
   };
 
   send = () => {
@@ -150,24 +151,18 @@ export default class HomePage extends React.Component {
     this.getSubject();
     return (
       <div className="d-flex">
-        <div className="left">
+        <div className="left d-flex flex-column flex-fill">
+          <TextArea
+            addonBefore="收件人"
+            placeholder="请输入收件人"
+            value={name}
+            onChange={this.nameChange}
+          />
           <Input
             addonBefore="姓名"
             placeholder="请输入姓名"
             value={name}
             onChange={this.nameChange}
-          />
-          <Input
-            addonBefore="电话"
-            placeholder="请输入电话号码"
-            value={phone}
-            onChange={this.numberChange}
-          />
-          <Input
-            addonBefore="邮箱"
-            placeholder="请输入电子邮箱"
-            value={email}
-            onChange={this.emailChange}
           />
           <Input
             addonBefore="领导"
@@ -181,19 +176,35 @@ export default class HomePage extends React.Component {
             value={department}
             onChange={this.departmentChange}
           />
-          <TextArea
+
+          {programs.map((value, index) => (
+            <Item index={index} data={value} dataChange={this.dataChange} placeholder={placeholder}/>
+          ))}
+
+          <a onClick={this.addProgram} className="addButton">
+            添加一个项目
+          </a>
+
+          <Input
+            addonBefore="电话"
+            placeholder="请输入电话号码"
+            value={phone}
+            onChange={this.numberChange}
+          />
+          <Input
+            addonBefore="邮箱"
+            placeholder="请输入电子邮箱"
+            value={email}
+            onChange={this.emailChange}
+          />
+          <Input
+            addonBefore={"完整部门名称"}
             placeholder="请输入签名部分完整部门名称"
             autosize
             value={departmentFull}
             onChange={this.departmentFullChange}
           />
-          <div>如：企业服务群组-研发中心-传媒研发部-营销产品研发组</div>
-
-          {programs.map((value, index) => (
-            <Item index={index} data={value} dataChange={this.dataChange} />
-          ))}
-          <a onClick={this.addProgram}>添加一个项目</a>
-          <a href={this.getHref()} onClick={this.send} className="send">
+          <a href={this.getHref()} onClick={this.send} className="addButton">
             发送邮件
           </a>
         </div>
