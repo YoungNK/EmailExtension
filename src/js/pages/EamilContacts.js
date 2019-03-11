@@ -81,14 +81,14 @@ export default class EmailContacts extends React.Component {
                 ) {
                   newList = [value];
                 } else {
-                  notList.push(value);
+                  notList.push(value.trim());
                 }
               }
               newList.map(value => {
                 if (isEmail(value.trim()) || isEmailWithName(value.trim())) {
-                  list.push(value);
+                  list.push(value.trim());
                 } else {
-                  notList.push(value);
+                  notList.push(value.trim());
                 }
               });
               this.listChange(list, true);
