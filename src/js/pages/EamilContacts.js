@@ -1,6 +1,9 @@
 import * as React from "react";
 import { isEmail, isEmailWithName, findEmail } from "../utils";
-import { Modal } from "antd";
+import { Modal, Popover } from "antd";
+import { Input } from "antd";
+
+const { TextArea } = Input;
 
 export default class EmailContacts extends React.Component {
   constructor(props) {
@@ -37,12 +40,35 @@ export default class EmailContacts extends React.Component {
     dataChange(res);
   };
 
+  ins = (
+    <div className="con-ins d-flex flex-column">
+      <p style={{padding:'15px 0'}}>{`邮箱支持 "shaozhaoyang@jd.com" 或者 "邵朝阳 <shaozhaoyang@jd.com>"两种格式，多条时用 "," 分隔,示例如下`}</p>
+      <TextArea
+      autosize
+        value={
+          "张庆锋 <zhangqingfeng11@jd.com>, Rowen SUN孙歌 <sunge@jd.com>, 石强 <shiqiang@jd.com>, 张敏 <zhangmin5@jd.com>, 李雪 <lixue3@jd.com>, 郭江江 <guojiangjiang@jd.com>, 赵钦 <zhaoqin5@jd.com>, 吴燕峰 <wuyanfeng@jd.com>, 陈东伟 <chendongwei1@jd.com>, 赵庆礼 <zhaoqingli@jd.com>, 邵朝阳 <shaozhaoyang@jd.com>, 常志峰 <changzhifeng@jd.com>, 王月阳 <wangyueyang@jd.com>, 祝鹤源 <zhuheyuan@jd.com>, 刘须华 <liuxuhua@jd.com>, 张维维 <zhangweiwei6@jd.com>, 叶纪峰 <yejifeng@jd.com>, 陈丽萍 <chenliping5@jd.com>"
+        }
+      />
+    </div>
+  );
+
   render() {
     let { temp } = this.state;
     let { list = [], title = "联系人" } = this.props;
     return (
       <div className="d-flex flex-column">
-        <div style={{ fontWeight: "bold", margin: "10px 0" }}>{title}</div>
+        <div className="d-flex align-items-center">
+          <div style={{ fontWeight: "bold", margin: "10px 0" }}>{title}</div>
+          <Popover
+            placement="topLeft"
+            title={"添加示例"}
+            content={this.ins}
+            trigger="click"
+            width={400}
+          >
+            <a>添加示例</a>
+          </Popover>
+        </div>
         <div className="d-flex email-con flex-wrap">
           {list.map((value, index) => (
             <div className="con-item-box d-flex">

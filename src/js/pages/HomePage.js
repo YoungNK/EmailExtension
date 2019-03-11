@@ -14,7 +14,7 @@ export default class HomePage extends React.Component {
     let isSameYear = time.monStr[0] === time.friStr[0];
     let local = loadFromStorage();
     if (!local.programs || local.programs.length < 1) {
-      local.programs = [{}];
+      local.programs = [{title:'示例标题',res:'1、示例项目1一级行\n a)示例2级行示例2级行\n b)示例2级行示例2级行'}];
     }
     this.state = {
       ...local,
