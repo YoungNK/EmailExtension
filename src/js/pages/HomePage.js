@@ -1,7 +1,7 @@
 import * as React from "react";
 import { timeFormate, loadFromStorage, storeData } from "../utils";
 import Sign from "./Sign";
-import { Input, Icon } from "antd";
+import { Input, Icon, Modal } from "antd";
 import Item from "./Item";
 import EmailContacts from "./EamilContacts";
 import ItemBottom from "./ItemBottom";
@@ -87,6 +87,10 @@ export default class HomePage extends React.Component {
       alert("none");
     }
     document.execCommand("Copy", "false", null);
+    Modal.success({
+      title: "提示",
+      content: "邮件内容已经复制到剪切板，粘贴在邮件内容框中即可"
+    });
   };
 
   dealData = data => {
@@ -275,7 +279,7 @@ export default class HomePage extends React.Component {
           />
           <About />
         </div>
-        <div className="d-flex flex-column" id="tableRes">
+        <div className="d-flex flex-column">
           <a
             href={this.getHref()}
             onClick={this.send}
@@ -283,130 +287,144 @@ export default class HomePage extends React.Component {
           >
             发送邮件
           </a>
-          <div className="divcss5">
-            <table width="950px" border="0" cellSpacing="1" cellPadding="0">
-              <thead>
-                <tr>
-                  <th colSpan="3">
-                    <div>
-                      <div className="title">{department}</div>
-                      <div className="sub-title">
-                        工作情况汇报（{monYear}年{monMonth}月{monDay}日-
-                        {isSameYear ? "" : friYear + "年"}
-                        {friMonth}月{friDay}日)
+          <div className="d-flex flex-column" id="tableRes">
+            <div className="divcss5">
+              <table width="950px" border="0" cellSpacing="1" cellPadding="0">
+                <thead>
+                  <tr>
+                    <th colSpan="3">
+                      <div>
+                        <div className="title">{department}</div>
+                        <div className="sub-title">
+                          工作情况汇报（{monYear}年{monMonth}月{monDay}日-
+                          {isSameYear ? "" : friYear + "年"}
+                          {friMonth}月{friDay}日)
+                        </div>
                       </div>
-                    </div>
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td colSpan="3">
-                    <div className="info bd">
-                      <span>报告人：{name}</span>
-                      <span>直接领导：{leader}</span>
-                      <span>所属部门： {department} </span>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td className="name bg-y info">工作项目</td>
-                  <td className="content bg-y info bd">本周结果</td>
-                  <td className="content bg-y info bd">下周计划</td>
-                </tr>
-                {programs.map(value => {
-                  return (
-                    <tr>
-                      <td className="name info blue">{value.title}</td>
-                      <td className="content info">
-                        {value.res &&
-                          value.res.split("\n").map(value => {
-                            let classNameStr =
-                              value.indexOf(" ") === 0
-                                ? "item-desc"
-                                : "item-title";
-                            return <div className={classNameStr}>{value}</div>;
-                          })}
-                      </td>
-                      <td className="content info">
-                        {value.plan &&
-                          value.plan.split("\n").map(value => {
-                            let classNameStr =
-                              value.indexOf(" ") === 0
-                                ? "item-desc"
-                                : "item-title";
-                            return <div className={classNameStr}>{value}</div>;
-                          })}
-                      </td>
-                    </tr>
-                  );
-                })}
-                <tr>
-                  <td
-                    colSpan="3"
-                    className="bg-y info bd"
-                    style={{ textAlign: "center" }}
-                  >
-                    没有最好、只有更好！
-                  </td>
-                </tr>
-                <tr>
-                  <td className="name info">需要协同的事项</td>
-                  <td colSpan="2" className="info bottom-item-box">
-                    <div>
-                      {needSyncMatter.split("\n").map(value => {
-                        let classNameStr =
-                          value.indexOf(" ") === 0 ? "item-desc" : "item-title";
-                        return <div className={classNameStr}>{value}</div>;
-                      })}
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td className="name info">工作经验分享</td>
-                  <td colSpan="2" className="info bottom-item-box">
-                    <div>
-                      {experienceShare.split("\n").map(value => {
-                        let classNameStr =
-                          value.indexOf(" ") === 0 ? "item-desc" : "item-title";
-                        return <div className={classNameStr}>{value}</div>;
-                      })}
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td className="name info">待解决、求助</td>
-                  <td colSpan="2" className="info bottom-item-box">
-                    <div>
-                      {underSolving.split("\n").map(value => {
-                        let classNameStr =
-                          value.indexOf(" ") === 0 ? "item-desc" : "item-title";
-                        return <div className={classNameStr}>{value}</div>;
-                      })}
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td className="name info">建议</td>
-                  <td colSpan="2" className="info bottom-item-box">
-                    <div>
-                      {suggestions.split("\n").map(value => {
-                        let classNameStr =
-                          value.indexOf(" ") === 0 ? "item-desc" : "item-title";
-                        return <div className={classNameStr}>{value}</div>;
-                      })}
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td colSpan="3">
+                      <div className="info bd">
+                        <span>报告人：{name}</span>
+                        <span>直接领导：{leader}</span>
+                        <span>所属部门： {department} </span>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="name bg-y info">工作项目</td>
+                    <td className="content bg-y info bd">本周结果</td>
+                    <td className="content bg-y info bd">下周计划</td>
+                  </tr>
+                  {programs.map(value => {
+                    return (
+                      <tr>
+                        <td className="name info blue">{value.title}</td>
+                        <td className="content info">
+                          {value.res &&
+                            value.res.split("\n").map(value => {
+                              let classNameStr =
+                                value.indexOf(" ") === 0
+                                  ? "item-desc"
+                                  : "item-title";
+                              return (
+                                <div className={classNameStr}>{value}</div>
+                              );
+                            })}
+                        </td>
+                        <td className="content info">
+                          {value.plan &&
+                            value.plan.split("\n").map(value => {
+                              let classNameStr =
+                                value.indexOf(" ") === 0
+                                  ? "item-desc"
+                                  : "item-title";
+                              return (
+                                <div className={classNameStr}>{value}</div>
+                              );
+                            })}
+                        </td>
+                      </tr>
+                    );
+                  })}
+                  <tr>
+                    <td
+                      colSpan="3"
+                      className="bg-y info bd"
+                      style={{ textAlign: "center" }}
+                    >
+                      没有最好、只有更好！
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="name info">需要协同的事项</td>
+                    <td colSpan="2" className="info bottom-item-box">
+                      <div>
+                        {needSyncMatter.split("\n").map(value => {
+                          let classNameStr =
+                            value.indexOf(" ") === 0
+                              ? "item-desc"
+                              : "item-title";
+                          return <div className={classNameStr}>{value}</div>;
+                        })}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="name info">工作经验分享</td>
+                    <td colSpan="2" className="info bottom-item-box">
+                      <div>
+                        {experienceShare.split("\n").map(value => {
+                          let classNameStr =
+                            value.indexOf(" ") === 0
+                              ? "item-desc"
+                              : "item-title";
+                          return <div className={classNameStr}>{value}</div>;
+                        })}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="name info">待解决、求助</td>
+                    <td colSpan="2" className="info bottom-item-box">
+                      <div>
+                        {underSolving.split("\n").map(value => {
+                          let classNameStr =
+                            value.indexOf(" ") === 0
+                              ? "item-desc"
+                              : "item-title";
+                          return <div className={classNameStr}>{value}</div>;
+                        })}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="name info">建议</td>
+                    <td colSpan="2" className="info bottom-item-box">
+                      <div>
+                        {suggestions.split("\n").map(value => {
+                          let classNameStr =
+                            value.indexOf(" ") === 0
+                              ? "item-desc"
+                              : "item-title";
+                          return <div className={classNameStr}>{value}</div>;
+                        })}
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <Sign
+              name={name}
+              email={email}
+              phone={phone}
+              departmentFull={departmentFull}
+            />
           </div>
-          <Sign
-            name={name}
-            email={email}
-            phone={phone}
-            departmentFull={departmentFull}
-          />
         </div>
       </div>
     );
