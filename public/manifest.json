@@ -1,6 +1,6 @@
 {
-  "name": "Email",
-  "description": "",
+  "name": "Email extension for jder",
+  "description": "周报模板工具",
   "version": "0.0.1",
   "background": {
     "scripts": ["background.js"],

@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-function customMailtoUrl() {
+/* function customMailtoUrl() {
   if (window.localStorage == null) return "";
   if (window.localStorage.customMailtoUrl == null) return "";
   return window.localStorage.customMailtoUrl;
@@ -50,7 +50,7 @@ chrome.runtime.onConnect.addListener(function(port) {
       info.selection = info.selection.substring(0, max_length);
     executeMailto(tab.id, info.title, tab.url, info.selection);
   });
-});
+}); */
 
 // Called when the user clicks on the browser action icon.
 chrome.browserAction.onClicked.addListener(function(tab) {
