@@ -103,7 +103,7 @@
     color: white;
     text-align: center;
   }
-  .addButton:hover{
+  .addButton:hover {
     background-color: #40a9ff;
   }
   .item-box {
@@ -113,7 +113,7 @@
     padding: 10px 10px;
     border-radius: 5px;
     border: #bbb dashed 1px;
-    textarea.ant-input{
+    textarea.ant-input {
       padding: 15px 11px;
     }
     .item-label {
@@ -125,5 +125,48 @@
       text-align: right;
       padding-top: 10px;
     }
+  }
+}
+
+.email-con {
+  border-bottom: 1px #aaa solid;
+  margin-bottom: 15px;
+  .con-item-box {
+    background: #87ceff;
+    font-weight: bolder;
+    margin: 2px;
+    position: relative;
+    .con-con {
+      font-size: 8pt;
+      line-height: 18px;
+      padding: 0 8px;
+      font-weight: bolder;
+      word-break: keep-all;
+      white-space: nowrap;
+    }
+    .con-item-delete {
+      display: none;
+    }
+  }
+  .con-item-box:hover {
+    .con-item-delete {
+      width: 100%;
+      height: 16px;
+      display: block;
+      position: absolute;
+      background: rgba(0, 0, 0, 0.6);
+      color: white;
+      font-weight: bold;
+      text-align: center;
+      font-size: 8pt;
+    }
+  }
+
+  .con-input {
+    border: none;
+    flex: 1;
+    line-height: 18px;
+    font-weight: bold;
+    color: blue;
   }
 }

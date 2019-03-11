@@ -1,8 +1,9 @@
 import * as React from "react";
 import { timeFormate, loadFromStorage, storeData } from "../utils";
 import Sign from "./Sign";
-import { Input } from "antd";
+import { Input, Icon } from "antd";
 import Item from "./Item";
+import EmailContacts from "./EamilContacts";
 const { TextArea } = Input;
 const placeholder = "每行一个条目 行首无空格展示为一级行 加空格为次级行";
 
@@ -57,7 +58,10 @@ export default class HomePage extends React.Component {
   };
 
   getHref = () => {
-    return `mailto:aa<sample@163.com>?subject=${this.getSubject()}&cc=张庆锋 <zhangqingfeng11@jd.com>, Rowen SUN孙歌 <sunge@jd.com>, 李雪 <lixue3@jd.com>, 石强 <shiqiang@jd.com>, 吴燕峰 <wuyanfeng@jd.com>, 张敏 <zhangmin5@jd.com>, 赵钦 <zhaoqin5@jd.com>, 陈东伟 <chendongwei1@jd.com>, 张维维 <zhangweiwei6@jd.com>, 叶纪峰 <yejifeng@jd.com>, 刘鹏 <liupeng30@jd.com>, 刘须华 <liuxuhua@jd.com>, 祝鹤源 <zhuheyuan@jd.com>, 陈丽萍 <chenliping5@jd.com>, 赵庆礼 <zhaoqingli@jd.com>, 邵朝阳 <shaozhaoyang@jd.com>, 常志峰 <changzhifeng@jd.com>, 王月阳 <wangyueyang@jd.com>`;
+    let { cc = [], receivers = [] } = this.state;
+    let ccStr = cc.join(",");
+    let receiversStr = receivers.join(",");
+    return `mailto:${receiversStr}?subject=${this.getSubject()}&cc=${ccStr}`;
   };
 
   send = () => {
@@ -131,6 +135,13 @@ export default class HomePage extends React.Component {
     this.dealData({ programs: this.state.programs });
   };
 
+  ccChange = data => {
+    this.dealData({ cc: data });
+  };
+  receiversChange = data => {
+    this.dealData({ receivers: data });
+  };
+
   render() {
     let {
       name,
@@ -146,17 +157,23 @@ export default class HomePage extends React.Component {
       email,
       phone,
       departmentFull,
-      programs = []
+      programs = [],
+      cc = [],
+      receivers = []
     } = this.state;
     this.getSubject();
     return (
       <div className="d-flex">
         <div className="left d-flex flex-column flex-fill">
-          <TextArea
-            addonBefore="收件人"
-            placeholder="请输入收件人"
-            value={name}
-            onChange={this.nameChange}
+          <EmailContacts
+            dataChange={this.receiversChange}
+            list={receivers}
+            title={"收件人："}
+          />
+          <EmailContacts
+            dataChange={this.ccChange}
+            list={cc}
+            title={"抄送："}
           />
           <Input
             addonBefore="姓名"
@@ -178,10 +195,16 @@ export default class HomePage extends React.Component {
           />
 
           {programs.map((value, index) => (
-            <Item index={index} data={value} dataChange={this.dataChange} placeholder={placeholder}/>
+            <Item
+              index={index}
+              data={value}
+              dataChange={this.dataChange}
+              placeholder={placeholder}
+            />
           ))}
 
           <a onClick={this.addProgram} className="addButton">
+            <Icon type="plus" />
             添加一个项目
           </a>
 

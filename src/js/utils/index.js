@@ -10,7 +10,19 @@ export const isPhone = s => {
 };
 
 export const isEmail = str => {
-  return str && /\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/.test(str);
+  return str && /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(str);
+};
+
+export const findEmail = str => {
+  let tmp = str && /\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/.exec(str);
+  return tmp ? tmp[0] : "";
+};
+
+export const isEmailWithName = str => {
+  return (
+    str &&
+    /^[\s\S]+<[ ]?\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*[ ]?>$/.test(str)
+  );
 };
 
 export const storeData = param => {

@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Input } from "antd";
+import { Input, Popconfirm } from 'antd';
 
 const { TextArea } = Input;
 
@@ -63,7 +63,9 @@ export default class Item extends React.Component {
           onChange={this.planChange}
         />
         <div className="item-delete">
-          <a onClick={this.delete}>删除该项目</a>
+          <Popconfirm title="确定删除当前项目？" okText="确定" cancelText="取消" onConfirm={this.delete}>
+            <a >删除该项目</a>
+          </Popconfirm>
         </div>
       </div>
     );
