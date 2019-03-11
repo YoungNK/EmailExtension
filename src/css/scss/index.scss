@@ -43,6 +43,9 @@
     .info {
       padding: 10px 0;
     }
+    .bottom-item-box {
+      padding: 15px 20px;
+    }
     .info span {
       font-size: 12pt;
       padding: 0 20px;
@@ -90,22 +93,26 @@
     color: #aaa;
   }
 }
+.addButton {
+  margin: 10px 0;
+  width: 150px;
+  height: 32px;
+  line-height: 32px;
+  border-radius: 6px;
+  background-color: #1890ff;
+  color: white;
+  text-align: center;
+}
+.addButton:hover {
+  background-color: #40a9ff;
+  color: white;
+}
+.send-button {
+  margin: 20px 0 -10px 25px;
+}
 .left {
   width: 300px;
   padding: 25px;
-  .addButton {
-    margin: 10px 0;
-    width: 150px;
-    height: 32px;
-    line-height: 32px;
-    border-radius: 6px;
-    background-color: #1890ff;
-    color: white;
-    text-align: center;
-  }
-  .addButton:hover {
-    background-color: #40a9ff;
-  }
   .item-box {
     background-color: #f6f6f6;
     margin-top: 10px;

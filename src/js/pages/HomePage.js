@@ -4,7 +4,7 @@ import Sign from "./Sign";
 import { Input, Icon } from "antd";
 import Item from "./Item";
 import EmailContacts from "./EamilContacts";
-const { TextArea } = Input;
+import ItemBottom from "./ItemBottom";
 const placeholder = "每行一个条目 行首无空格展示为一级行 加空格为次级行";
 
 export default class HomePage extends React.Component {
@@ -87,6 +87,12 @@ export default class HomePage extends React.Component {
     this.setState(data);
   };
 
+  commonChange = (e, name) => {
+    let res = {};
+    res[name] = e.target.value;
+    this.dealData(res);
+  };
+
   nameChange = val => {
     this.dealData({
       name: val.target.value
@@ -159,7 +165,11 @@ export default class HomePage extends React.Component {
       departmentFull,
       programs = [],
       cc = [],
-      receivers = []
+      receivers = [],
+      needSyncMatter = "",
+      experienceShare = "",
+      underSolving = "",
+      suggestions = ""
     } = this.state;
     this.getSubject();
     return (
@@ -208,6 +218,35 @@ export default class HomePage extends React.Component {
             添加一个项目
           </a>
 
+          <ItemBottom
+            title="需要协同的事项"
+            placeholder={placeholder}
+            dataChange={this.commonChange}
+            data={needSyncMatter}
+            name={"needSyncMatter"}
+          />
+          <ItemBottom
+            title="工作经验分享"
+            placeholder={placeholder}
+            dataChange={this.commonChange}
+            data={experienceShare}
+            name={"experienceShare"}
+          />
+          <ItemBottom
+            title="待解决、求助"
+            placeholder={placeholder}
+            dataChange={this.commonChange}
+            data={underSolving}
+            name={"underSolving"}
+          />
+          <ItemBottom
+            title="建议"
+            placeholder={placeholder}
+            dataChange={this.commonChange}
+            data={suggestions}
+            name={"suggestions"}
+          />
+
           <Input
             addonBefore="电话"
             placeholder="请输入电话号码"
@@ -227,11 +266,11 @@ export default class HomePage extends React.Component {
             value={departmentFull}
             onChange={this.departmentFullChange}
           />
-          <a href={this.getHref()} onClick={this.send} className="addButton">
-            发送邮件
-          </a>
         </div>
         <div className="d-flex flex-column" id="tableRes">
+          <a href={this.getHref()} onClick={this.send} className="addButton send-button">
+            发送邮件
+          </a>
           <div className="divcss5">
             <table width="950px" border="0" cellSpacing="1" cellPadding="0">
               <thead>
@@ -301,19 +340,51 @@ export default class HomePage extends React.Component {
                 </tr>
                 <tr>
                   <td className="name info">需要协同的事项</td>
-                  <td colSpan="2" className="info" />
+                  <td colSpan="2" className="info bottom-item-box">
+                    <div>
+                      {needSyncMatter.split("\n").map(value => {
+                        let classNameStr =
+                          value.indexOf(" ") === 0 ? "item-desc" : "item-title";
+                        return <div className={classNameStr}>{value}</div>;
+                      })}
+                    </div>
+                  </td>
                 </tr>
                 <tr>
                   <td className="name info">工作经验分享</td>
-                  <td colSpan="2" className="info" />
+                  <td colSpan="2" className="info bottom-item-box">
+                    <div>
+                      {experienceShare.split("\n").map(value => {
+                        let classNameStr =
+                          value.indexOf(" ") === 0 ? "item-desc" : "item-title";
+                        return <div className={classNameStr}>{value}</div>;
+                      })}
+                    </div>
+                  </td>
                 </tr>
                 <tr>
                   <td className="name info">待解决、求助</td>
-                  <td colSpan="2" className="info" />
+                  <td colSpan="2" className="info bottom-item-box">
+                    <div>
+                      {underSolving.split("\n").map(value => {
+                        let classNameStr =
+                          value.indexOf(" ") === 0 ? "item-desc" : "item-title";
+                        return <div className={classNameStr}>{value}</div>;
+                      })}
+                    </div>
+                  </td>
                 </tr>
                 <tr>
                   <td className="name info">建议</td>
-                  <td colSpan="2" className="info" />
+                  <td colSpan="2" className="info bottom-item-box">
+                    <div>
+                      {suggestions.split("\n").map(value => {
+                        let classNameStr =
+                          value.indexOf(" ") === 0 ? "item-desc" : "item-title";
+                        return <div className={classNameStr}>{value}</div>;
+                      })}
+                    </div>
+                  </td>
                 </tr>
               </tbody>
             </table>
