@@ -181,3 +181,21 @@
 .con-ins{
   width: 500px;
 }
+
+.about-me{
+  margin: 20px 0;
+  .a-label{
+    color: blue;
+    font-size: 11pt;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  a,p{
+    font-size: 14px;
+    line-height: 22px;
+  }
+  i{
+    font-weight: bold;
+    color: red;
+  }
+}
