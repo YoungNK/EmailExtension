@@ -74,9 +74,10 @@ export default class EmailContacts extends React.Component {
                 newList = value.split(spliter);
               } else {
                 if (
-                  value.indexOf(" ") > 4 ||
-                  value.indexOf(";") > 4 ||
-                  value.indexOf(",") > 4
+                  value.indexOf(" ") > 0 ||
+                  value.indexOf(";") > 0 ||
+                  value.indexOf(",") > 0 ||
+                  isEmailWithName(value.trim())
                 ) {
                   newList = [value];
                 } else {
