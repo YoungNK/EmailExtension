@@ -8,6 +8,7 @@ export default class Sign extends React.Component {
     let { email, name, Ename = "", phone, departmentFull = "" } = this.props;
     return (
       <div className="sign">
+        <div dangerouslySetInnerHTML={{__html:`<p style="margin:0cm;margin-bottom:.0001pt;line-height:15.0pt;background:white"><span lang="EN-US" style="font-size:10.0pt;font-family:&quot;微软雅黑&quot;,&quot;sans-serif&quot;;color:#595959"><o:p>&nbsp;</o:p></span></p>`}}></div>
         <p>
           {name} {Ename}
         </p>
