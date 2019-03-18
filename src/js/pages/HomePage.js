@@ -232,13 +232,6 @@ export default class HomePage extends React.Component {
             name={"needSyncMatter"}
           />
           <ItemBottom
-            title="工作经验分享"
-            placeholder={placeholder}
-            dataChange={this.commonChange}
-            data={experienceShare}
-            name={"experienceShare"}
-          />
-          <ItemBottom
             title="待解决、求助"
             placeholder={placeholder}
             dataChange={this.commonChange}
