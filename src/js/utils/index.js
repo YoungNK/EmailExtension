@@ -41,15 +41,39 @@ export const loadFromStorage = () => {
     dataNow = JSON.parse(window.localStorage.getItem(DataKeyName));
   } catch (ex) {}
   dataNow = dataNow ? dataNow : {};
-  dataNow.programs = dataNow.programs || [{
-    title: "示例标题",
-    res:
-      "1、示例项目1一级行\n a)示例2级行示例2级行\n 示例2级行示例2级\n2、示例项目1一级行\n 示例2级行示例2级行\n 示例2级行示例2级行",
-    plan: ""
-  }];
-  dataNow.departmentFull = dataNow.departmentFull || "企业服务群组-研发中心-传媒研发部-营销产品研发组";
+  dataNow.programs = dataNow.programs || [
+    {
+      title: "示例标题",
+      res:
+        "1、示例项目1一级行\n a)示例2级行示例2级行\n 示例2级行示例2级\n2、示例项目1一级行\n 示例2级行示例2级行\n 示例2级行示例2级行",
+      plan: ""
+    }
+  ];
+  dataNow.departmentFull =
+    dataNow.departmentFull || "企业服务群组-研发中心-传媒研发部-营销产品研发组";
   dataNow.leader = dataNow.leader || "张鑫";
   dataNow.department = dataNow.department || "传媒研发部";
+  dataNow.receivers = dataNow.receivers || ["张鑫 <zhangxin10@jd.com>"];
+  dataNow.cc = dataNow.cc || [
+    "张庆锋 <zhangqingfeng11@jd.com>",
+    "Rowen SUN孙歌 <sunge@jd.com>",
+    "石强 <shiqiang@jd.com>",
+    "张敏 <zhangmin5@jd.com>",
+    "李雪 <lixue3@jd.com>",
+    "郭江江 <guojiangjiang@jd.com>",
+    "赵钦 <zhaoqin5@jd.com>",
+    "吴燕峰 <wuyanfeng@jd.com>",
+    "陈东伟 <chendongwei1@jd.com>",
+    "赵庆礼 <zhaoqingli@jd.com>",
+    "邵朝阳 <shaozhaoyang@jd.com>",
+    "常志峰 <changzhifeng@jd.com>",
+    "王月阳 <wangyueyang@jd.com>",
+    "祝鹤源 <zhuheyuan@jd.com>",
+    "刘须华 <liuxuhua@jd.com>",
+    "张维维 <zhangweiwei6@jd.com>",
+    "叶纪峰 <yejifeng@jd.com>",
+    "陈丽萍 <chenliping5@jd.com>"
+  ];
   return dataNow;
 };
 
