@@ -41,6 +41,15 @@ export const loadFromStorage = () => {
     dataNow = JSON.parse(window.localStorage.getItem(DataKeyName));
   } catch (ex) {}
   dataNow = dataNow ? dataNow : {};
+  dataNow.programs = dataNow.programs || [{
+    title: "示例标题",
+    res:
+      "1、示例项目1一级行\n a)示例2级行示例2级行\n 示例2级行示例2级\n2、示例项目1一级行\n 示例2级行示例2级行\n 示例2级行示例2级行",
+    plan: ""
+  }];
+  dataNow.departmentFull = dataNow.departmentFull || "企业服务群组-研发中心-传媒研发部-营销产品研发组";
+  dataNow.leader = dataNow.leader || "张鑫";
+  dataNow.department = dataNow.department || "传媒研发部";
   return dataNow;
 };
 

@@ -41,7 +41,7 @@ export default class TableEmail extends React.Component {
   };
 
   renderItemRow = programs => {
-    return programs.map(value => {
+    return programs.map((value={}) => {
       return `<tr style="mso-yfti-irow:3;height:2.0cm">
       <td width="198" style="width:148.45pt;border-top:none;border-left:solid gray 1.0pt;
       mso-border-left-themecolor:background1;mso-border-left-themeshade:128;
