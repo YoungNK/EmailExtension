@@ -1,5 +1,4 @@
 import * as React from "react";
-import logo from "../../img/logo.png";
 
 export default class Sign extends React.Component {
   constructor(props) {
@@ -13,7 +12,7 @@ export default class Sign extends React.Component {
           {name} {Ename}
         </p>
         <p>{departmentFull}</p>
-        <img src={logo} className="logo" />
+        <img src={'http://img30.360buyimg.com/jr_image/jfs/t1/25677/29/11404/7044/5c8f428bE9da4bab7/5e483d902dd55a5b.png'} className="logo" />
         <p>手机号：+(86) {phone}</p>
         <p>邮编：100101</p>
         <a href={`mailto:${name}<${email}>`}>E-mail：{email}</a>

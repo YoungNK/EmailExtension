@@ -1,5 +1,5 @@
 import * as React from "react";
-import { timeFormate, loadFromStorage, storeData } from "../utils";
+import { timeFormate, loadFromStorage, storeData, getOS } from "../utils";
 import Sign from "./Sign";
 import { Input, Icon, Modal } from "antd";
 import Item from "./Item";
@@ -66,8 +66,9 @@ export default class HomePage extends React.Component {
 
   getHref = () => {
     let { cc = [], receivers = [] } = this.state;
-    let ccStr = cc.join(",");
-    let receiversStr = receivers.join(",");
+    let seprater = getOS().indexOf("Win") === 0 ? ";" : ",";
+    let ccStr = cc.join(seprater);
+    let receiversStr = receivers.join(seprater);
     return `mailto:${receiversStr}?subject=${this.getSubject()}&cc=${ccStr}`;
   };
 
