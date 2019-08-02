@@ -132,7 +132,7 @@ export default class HomePage extends React.Component {
     });
   };
   addProgram = () => {
-    this.state.programs.push({res:'',plan:'',title:''});
+    this.state.programs.push({res:'',plan:'',title:'', newSync: ''});
     this.dealData({ programs: this.state.programs });
   };
 

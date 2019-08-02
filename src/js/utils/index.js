@@ -46,7 +46,8 @@ export const loadFromStorage = () => {
       title: "示例标题",
       res:
         "1、示例项目1一级行\n a)示例2级行示例2级行\n 示例2级行示例2级\n2、示例项目1一级行\n 示例2级行示例2级行\n 示例2级行示例2级行",
-      plan: ""
+      plan: "",
+      newSync: ""
     }
   ];
   dataNow.departmentFull =
