@@ -46,7 +46,7 @@ export default class EmailContacts extends React.Component {
       <TextArea
       autosize
         value={
-          "张庆锋 <zhangqingfeng11@jd.com>, Rowen SUN孙歌 <sunge@jd.com>, 石强 <shiqiang@jd.com>, 张敏 <zhangmin5@jd.com>, 李雪 <lixue3@jd.com>, 郭江江 <guojiangjiang@jd.com>, 赵钦 <zhaoqin5@jd.com>, 吴燕峰 <wuyanfeng@jd.com>, 陈东伟 <chendongwei1@jd.com>, 赵庆礼 <zhaoqingli@jd.com>, 邵朝阳 <shaozhaoyang@jd.com>, 常志峰 <changzhifeng@jd.com>, 王月阳 <wangyueyang@jd.com>, 祝鹤源 <zhuheyuan@jd.com>, 刘须华 <liuxuhua@jd.com>, 张维维 <zhangweiwei6@jd.com>, 叶纪峰 <yejifeng@jd.com>, 陈丽萍 <chenliping5@jd.com>"
+          "张庆锋 <zhangqingfeng11@jd.com>,石强 <shiqiang@jd.com>,张敏 <zhangmin5@jd.com>,李雪 <lixue3@jd.com>,郭江江 <guojiangjiang@jd.com>,陈东伟 <chendongwei1@jd.com>,邵朝阳 <shaozhaoyang@jd.com>,常志峰 <changzhifeng@jd.com>,祝鹤源 <zhuheyuan@jd.com>,刘须华 <liuxuhua@jd.com>,张维维 <zhangweiwei6@jd.com>,叶纪峰 <yejifeng@jd.com>,陈丽萍 <chenliping5@jd.com>"
         }
       />
     </div>

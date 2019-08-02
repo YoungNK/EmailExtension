@@ -29,6 +29,14 @@ export default class Item extends React.Component {
       plan: val.target.value
     });
   };
+  newSyncChange = val => {
+    let { index, data = {} } = this.props;
+    this.props.dataChange(index, {
+      delete: false,
+      ...data,
+      newSync: val.target.value
+    });
+  };
   titleChange = val => {
     let { index, data = {} } = this.props;
     this.props.dataChange(index, {
@@ -61,6 +69,13 @@ export default class Item extends React.Component {
           autosize
           value={data.plan}
           onChange={this.planChange}
+        />
+        <div className="item-label">需要协同事项</div>
+        <TextArea
+          placeholder={placeholder}
+          autosize
+          value={data.newSync}
+          onChange={this.newSyncChange}
         />
         <div className="item-delete">
           <Popconfirm title="确定删除当前项目？" okText="确定" cancelText="取消" onConfirm={this.delete}>

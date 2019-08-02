@@ -75,6 +75,15 @@ export default class TableEmail extends React.Component {
       height:2.0cm">
       ${this.renderLines(value.plan.split("\n"))}
       </td>
+      <td width="331" style="width:248.05pt;border-top:none;border-left:none;
+      border-bottom:solid gray 1.0pt;mso-border-bottom-themecolor:background1;
+      mso-border-bottom-themeshade:128;border-right:solid gray 1.0pt;mso-border-right-themecolor:
+      background1;mso-border-right-themeshade:128;mso-border-top-alt:solid gray 1.0pt;
+      mso-border-top-themecolor:background1;mso-border-top-themeshade:128;
+      mso-border-left-alt:solid windowtext 1.0pt;padding:.75pt .75pt 0cm .75pt;
+      height:2.0cm">
+      ${this.renderLines(value.newSync.split("\n"))}
+      </td>
      </tr>`;
     });
   };
@@ -105,7 +114,7 @@ export default class TableEmail extends React.Component {
       mso-border-insideh-themecolor:background1;mso-border-insideh-themeshade:128;
       mso-border-insidev:1.0pt solid windowtext">
       <tbody><tr style="mso-yfti-irow:0;mso-yfti-firstrow:yes;height:30.75pt">
-       <td width="916" colspan="3" style="text-align:center;width:687.1pt;border:solid gray 1.0pt;
+       <td width="916" colspan="4" style="text-align:center;width:687.1pt;border:solid gray 1.0pt;
        mso-border-themecolor:background1;mso-border-themeshade:128;background:#FFFF99;
        padding:.75pt .75pt 0cm .75pt;height:30.75pt">
        <p class="MsoNormal" align="center" style="margin-top:6.0pt;mso-para-margin-top:
@@ -124,7 +133,7 @@ export default class TableEmail extends React.Component {
        </td>
       </tr>
       <tr style="mso-yfti-irow:1;height:30.75pt">
-       <td width="916" colspan="3" style="width:687.1pt;border:solid gray 1.0pt;
+       <td width="916" colspan="4" style="width:687.1pt;border:solid gray 1.0pt;
        mso-border-themecolor:background1;mso-border-themeshade:128;border-top:none;
        mso-border-top-alt:solid gray 1.0pt;mso-border-top-themecolor:background1;
        mso-border-top-themeshade:128;padding:.75pt .75pt 0cm .75pt;height:30.75pt">
@@ -177,10 +186,24 @@ export default class TableEmail extends React.Component {
        text1;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
        &quot;lumm=75000 lumo=25000&quot;">下周计划<span lang="EN-US"><o:p></o:p></span></span></b></p>
        </td>
+       <td width="331" style="width:248.05pt;border-top:none;border-left:none;
+       border-bottom:solid gray 1.0pt;mso-border-bottom-themecolor:background1;
+       mso-border-bottom-themeshade:128;border-right:solid gray 1.0pt;mso-border-right-themecolor:
+       background1;mso-border-right-themeshade:128;mso-border-top-alt:solid gray 1.0pt;
+       mso-border-top-themecolor:background1;mso-border-top-themeshade:128;
+       mso-border-left-alt:solid windowtext 1.0pt;background:#FFFF99;padding:.75pt .75pt 0cm .75pt;
+       height:30.75pt">
+       <p class="MsoNormal" align="left" style="text-align:left;text-indent:12.0pt;
+       mso-char-indent-count:1.0"><b><span style="font-size:12.0pt;mso-bidi-font-size:
+       11.0pt;font-family:&quot;微软雅黑&quot;,&quot;sans-serif&quot;;color:#404040;mso-themecolor:text1;
+       mso-themetint:191;mso-style-textfill-fill-color:#404040;mso-style-textfill-fill-themecolor:
+       text1;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+       &quot;lumm=75000 lumo=25000&quot;">需要协同事项<span lang="EN-US"><o:p></o:p></span></span></b></p>
+       </td>
       </tr>
       ${this.renderItemRow(programs)}
       <tr style="mso-yfti-irow:4;height:30.75pt">
-      <td width="916" colspan="3" style="width:687.1pt;border:solid gray 1.0pt;
+      <td width="916" colspan="4" style="width:687.1pt;border:solid gray 1.0pt;
       mso-border-themecolor:background1;mso-border-themeshade:128;border-top:none;
       mso-border-top-alt:solid gray 1.0pt;mso-border-top-themecolor:background1;
       mso-border-top-themeshade:128;background:#FFFF99;padding:.75pt .75pt 0cm .75pt;
@@ -201,9 +224,9 @@ export default class TableEmail extends React.Component {
        <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-size:12.0pt;mso-bidi-font-size:11.0pt;font-family:&quot;微软雅黑&quot;,&quot;sans-serif&quot;;
        color:#404040;mso-themecolor:text1;mso-themetint:191;mso-style-textfill-fill-color:
        #404040;mso-style-textfill-fill-themecolor:text1;mso-style-textfill-fill-alpha:
-       100.0%;mso-style-textfill-fill-colortransforms:&quot;lumm=75000 lumo=25000&quot;">需要协同的事项<span lang="EN-US"><o:p></o:p></span></span></b></p>
+       100.0%;mso-style-textfill-fill-colortransforms:&quot;lumm=75000 lumo=25000&quot;">工作经验分享<span lang="EN-US"><o:p></o:p></span></span></b></p>
        </td>
-       <td width="718" colspan="2" valign="top" style="width:19.0cm;border-top:none;
+       <td width="718" colspan="3" valign="top" style="width:19.0cm;border-top:none;
        border-left:none;border-bottom:solid gray 1.0pt;mso-border-bottom-themecolor:
        background1;mso-border-bottom-themeshade:128;border-right:solid gray 1.0pt;
        mso-border-right-themecolor:background1;mso-border-right-themeshade:128;
@@ -225,7 +248,7 @@ export default class TableEmail extends React.Component {
        #404040;mso-style-textfill-fill-themecolor:text1;mso-style-textfill-fill-alpha:
        100.0%;mso-style-textfill-fill-colortransforms:&quot;lumm=75000 lumo=25000&quot;">待解决，求助<span lang="EN-US"><o:p></o:p></span></span></b></p>
        </td>
-       <td width="718" colspan="2" style="width:19.0cm;border-top:none;border-left:none;
+       <td width="718" colspan="3" style="width:19.0cm;border-top:none;border-left:none;
        border-bottom:solid gray 1.0pt;mso-border-bottom-themecolor:background1;
        mso-border-bottom-themeshade:128;border-right:solid gray 1.0pt;mso-border-right-themecolor:
        background1;mso-border-right-themeshade:128;mso-border-top-alt:solid gray 1.0pt;
@@ -247,7 +270,7 @@ export default class TableEmail extends React.Component {
        #404040;mso-style-textfill-fill-themecolor:text1;mso-style-textfill-fill-alpha:
        100.0%;mso-style-textfill-fill-colortransforms:&quot;lumm=75000 lumo=25000&quot;">建议<span lang="EN-US"><o:p></o:p></span></span></b></p>
        </td>
-       <td width="718" colspan="2" valign="top" style="width:19.0cm;border-top:none;
+       <td width="718" colspan="3" valign="top" style="width:19.0cm;border-top:none;
        border-left:none;border-bottom:solid gray 1.0pt;mso-border-bottom-themecolor:
        background1;mso-border-bottom-themeshade:128;border-right:solid gray 1.0pt;
        mso-border-right-themecolor:background1;mso-border-right-themeshade:128;

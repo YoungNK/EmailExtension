@@ -216,7 +216,7 @@ export default class HomePage extends React.Component {
           </a>
 
           <ItemBottom
-            title="需要协同的事项"
+            title="工作经验分享"
             placeholder={placeholder}
             dataChange={this.commonChange}
             data={needSyncMatter}
