@@ -132,20 +132,31 @@ export default class TableEmail extends React.Component {
        font-family:&quot;微软雅黑&quot;,&quot;sans-serif&quot;;mso-bidi-font-family:宋体"><o:p></o:p></span></b></p>
        </td>
       </tr>
-      <tr style="mso-yfti-irow:1;height:30.75pt">
-       <td width="916" colspan="4" style="width:687.1pt;border:solid gray 1.0pt;
-       mso-border-themecolor:background1;mso-border-themeshade:128;border-top:none;
-       mso-border-top-alt:solid gray 1.0pt;mso-border-top-themecolor:background1;
-       mso-border-top-themeshade:128;padding:.75pt .75pt 0cm .75pt;height:30.75pt">
-       <p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-size:12.0pt;mso-bidi-font-size:11.0pt;font-family:&quot;微软雅黑&quot;,&quot;sans-serif&quot;;
-       color:#404040;mso-themecolor:text1;mso-themetint:191;mso-style-textfill-fill-color:
-       #404040;mso-style-textfill-fill-themecolor:text1;mso-style-textfill-fill-alpha:
-       100.0%;mso-style-textfill-fill-colortransforms:&quot;lumm=75000 lumo=25000&quot;">报告人：${name}<span lang="EN-US"><span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-       </span></span>直接负责人：${leader}<span lang="EN-US"><span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-       </span></span>所属部门：${department}</span></b><span lang="EN-US" style="font-size:12.0pt;
-       font-family:&quot;微软雅黑&quot;,&quot;sans-serif&quot;;mso-bidi-font-family:宋体"><o:p></o:p></span></p>
-       </td>
-      </tr>
+      <tr style='mso-yfti-irow:1'>
+      <td width="100%" colspan=4 valign=top style='font-weight:bold; width:687.1pt;border:solid gray 1.0pt;
+      mso-border-themecolor:background1;mso-border-themeshade:128;border-top:none;
+      mso-border-top-alt:solid gray 1.0pt;mso-border-top-themecolor:background1;
+      mso-border-top-themeshade:128;padding:.75pt .75pt 0cm .75pt;height:30.75pt'>
+      <p class=xmsonormal style='text-align:justify;text-justify:inter-ideograph'><b><span
+      style='font-size:9.5pt;font-family:"微软雅黑","sans-serif";color:#212121'>报告人：${name}</span></b><b><span
+      lang=EN-US style='font-size:9.5pt;font-family:"微软雅黑","sans-serif";color:#1F497D'>&nbsp;
+      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span></b><span lang=EN-US
+      style='font-size:10.5pt;font-family:"等线","serif";color:#212121'><o:p></o:p></span></p>
+      <p class=xmsonormal style='text-align:justify;text-justify:inter-ideograph'><b><span
+      style='font-size:9.5pt;font-family:"微软雅黑","sans-serif";color:#212121'>直接领导：${leader}</span></b><span
+      lang=EN-US style='font-size:10.5pt;font-family:"等线","serif";color:#212121'><o:p></o:p></span></p>
+      <p class=xmsonormal style='text-align:justify;text-justify:inter-ideograph'><b><span
+      style='font-size:9.5pt;font-family:"微软雅黑","sans-serif";color:#212121'>所属部门：${department}</span></b><span
+      lang=EN-US style='font-size:10.5pt;font-family:"等线","serif";color:#212121'><o:p></o:p></span></p>
+      </td>
+     </tr>
+
       <tr style="mso-yfti-irow:2;height:30.75pt">
        <td width="198" style="width:148.45pt;border-top:none;border-left:solid gray 1.0pt;
        mso-border-left-themecolor:background1;mso-border-left-themeshade:128;
